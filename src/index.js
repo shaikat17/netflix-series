@@ -2,16 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Card from './Card'
+import netflixData from './netflix'
+
+// console.log(netflixData[0])
+
+// function iCard(val) {
+//   console.log(val)
+
+//   return (
+//     <Card imgSrc={val.imageSrc}
+//     title={val.title} 
+//     link={val.link} />
+//     )
+// }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <>
+  <h1 className="heading_style">List of 10 Series</h1>
+  <div className="cards">
+    {netflixData.map( val => {
+      return (
+    <Card imgSrc={val.imageSrc}
+    title={val.title} 
+    link={val.link} />
+    )
+    })}
+    </div>
+    </>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
